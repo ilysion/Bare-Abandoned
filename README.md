@@ -2,22 +2,19 @@
 Best game project ever
 
 
-### Installing
-
-Anything here?
+### Project related links
 
 ----- Will be coming soon -----
 
+Project plan spreadsheet
 ```
-Instruction 1
+https://docs.google.com/spreadsheets/d/1jwZvFaK-pXtUiSf5tsAreUOTiJewHgq9s2s6TMX95eA/edit?usp=sharing
 ```
 
-Next do this etc.
-
+Project PERT chart
 ```
-Instruction 2
+https://docs.google.com/drawings/d/1mTxqK4mIwpFZOCCy0jV1rRPy4fpqsN2BavD6aqxXgZY/edit?usp=sharing
 ```
-finnally something here
 
 
 ## Built With
