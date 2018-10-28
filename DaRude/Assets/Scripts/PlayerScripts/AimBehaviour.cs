@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 // AimBehaviour inherits from GenericBehaviour. This class corresponds to aim and strafe behaviour.
 public class AimBehaviour : GenericBehaviour
 {
+    public Text annoucementText;
+    public GameObject LoadingBar;
+    public GameObject Toolbar;
+    public GameObject MainCanvas;
 	public Texture2D crosshair;                                           // Crosshair texture.
 	public float aimTurnSmoothing = 15.0f;                                // Speed of turn response when aiming to match camera facing.
 	public Vector3 aimPivotOffset = new Vector3(0.0f, 1.7f,  -0.3f);      // Offset to repoint the camera when aiming.
@@ -11,10 +16,16 @@ public class AimBehaviour : GenericBehaviour
 
 	private int aimBool;                                                  // Animator variable related to aiming.
 	private bool aim;                                                     // Boolean to determine whether or not the player is aiming.
+    private float ChopStartTime;
+    private float AnnoucementTextTime;
+    private bool AnnoucementTextActive;
 
-	// Start is always called after any Awake functions.
-	void Start ()
+
+    // Start is always called after any Awake functions.
+    void Start ()
 	{
+        ChopStartTime = 0;
+        AnnoucementTextTime = 0;
 		// Set up the references.
 		aimBool = Animator.StringToHash("Aim");
 
@@ -51,11 +62,73 @@ public class AimBehaviour : GenericBehaviour
 		if (aim && Input.GetButtonDown ("Fire3"))
 		{
 			aimCamOffset.x = aimCamOffset.x * (-1);
+            
 		}
 
 		// Set aim boolean on the Animator Controller.
 		anim.SetBool (aimBool, aim);
-	}
+
+        if (Input.GetMouseButton(0))
+        {
+
+            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+            RaycastHit hitInfo;
+            bool hit = Physics.Raycast(ray, out hitInfo);
+            if (hit)
+            {
+                print("hit something:" + hitInfo.transform.gameObject.tag);
+                
+                if (hitInfo.transform.gameObject.tag == "TreeTag")
+                {
+                    //Ray hit tree
+                    if (Toolbar.GetComponent<ToolbarHandler>().getActiveToolName() == "Hatchet")
+                    {
+                        ChopTree();
+                    }
+                }
+                
+            }
+
+        }
+        else //means mouse not pressed
+        {
+            LoadingBar.SetActive(false);
+
+        }
+        if (AnnoucementTextActive)
+        {
+            AnnoucementTextTime += Time.deltaTime;
+        }
+
+        if (AnnoucementTextTime > 2)
+        {
+            annoucementText.text = "";
+            AnnoucementTextActive = false;
+            AnnoucementTextTime = 0;
+        }
+    }
+
+    private void ChopTree()
+    {
+        if(LoadingBar.active == false)
+        {
+            LoadingBar.GetComponent<LoadingCircle>().ResetLoading();
+            ChopStartTime = 0;
+        }
+        LoadingBar.SetActive(true);
+        ChopStartTime += Time.deltaTime;
+
+        if(ChopStartTime > 3)
+        {
+            annoucementText.text = "You chopped 3 logs";
+            AnnoucementTextActive = true;
+            LoadingBar.SetActive(false);
+            ChopStartTime = 0;
+        }
+
+        
+        
+    }
 
 	// LocalFixedUpdate overrides the virtual function of the base class.
 	public override void LocalFixedUpdate()
@@ -93,8 +166,9 @@ public class AimBehaviour : GenericBehaviour
 	void OnGUI () 
 	{
 		float mag = camScript.getCurrentPivotMagnitude (aimPivotOffset);
-		if (mag < 0.05f)
-			GUI.DrawTexture(new Rect(Screen.width/2-(crosshair.width*0.5f), 
+        //if (mag < 0.05f) //draws crosshair when in aim mode
+        if (true)
+            GUI.DrawTexture(new Rect(Screen.width/2-(crosshair.width*0.5f), 
 			                         Screen.height/2-(crosshair.height*0.5f), 
 			                         crosshair.width, crosshair.height), crosshair);
 	}

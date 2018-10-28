@@ -67,4 +67,13 @@ public class PlayerController : MonoBehaviour {
     {
         this.OutOfDeathCircle = state;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("TreeTag"))
+        {
+            //hit small three
+            
+        }
+    }
 }
