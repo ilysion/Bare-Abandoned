@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
+    public Terrain terrain;
+    public int PlayerStartingHeight = 10;
+
     public UIController Canvas;
     public int Health;
     private bool OutOfDeathCircle;
@@ -23,6 +26,10 @@ public class PlayerController : MonoBehaviour {
         curTimeStamp = Time.time;
         sceneRestartDelay = 4;
 
+        //Sets character starting position according to generated map
+        Vector3 currentpos = transform.position;
+        currentpos.y = GetHeightDetail(terrain.terrainData, Mathf.RoundToInt(currentpos.x), Mathf.RoundToInt(currentpos.z)) + PlayerStartingHeight;
+        transform.position = currentpos;
     }
 	
 	// Update is called once per frame
@@ -75,5 +82,14 @@ public class PlayerController : MonoBehaviour {
             //hit small three
             
         }
+    }
+
+    private float GetHeightDetail(TerrainData terrainData, int x, int y)
+    {
+        float y_01 = (float)y / (float)terrainData.detailHeight;
+        float x_01 = (float)x / (float)terrainData.detailWidth;
+        //Gets height at this coordinates
+        float height = terrainData.GetHeight(Mathf.RoundToInt(y_01 * terrainData.heightmapWidth), Mathf.RoundToInt(x_01 * terrainData.heightmapWidth));
+        return height;
     }
 }
