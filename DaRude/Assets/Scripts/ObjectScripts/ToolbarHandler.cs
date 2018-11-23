@@ -8,9 +8,11 @@ public class ToolbarHandler : MonoBehaviour {
     //tool images;
     public Sprite HatchetSprite;
     public Sprite PickaxeSprite;
+    public Sprite BarricadeSprite;
     //Tool Gameobjects
     public GameObject Hatchet;
     public GameObject Pickaxe;
+    public GameObject Blueprint;
     private List<GameObject> ToolsList;
 
     public GameObject BarButtonPrefab;
@@ -29,6 +31,7 @@ public class ToolbarHandler : MonoBehaviour {
 
         ToolsList.Add(Hatchet);
         ToolsList.Add(Pickaxe);
+        ToolsList.Add(Blueprint);
 
         //making all buttons manually atm
         GameObject newButton = Instantiate(BarButtonPrefab);
@@ -45,8 +48,15 @@ public class ToolbarHandler : MonoBehaviour {
         newButton2.GetComponentInChildren<Text>().text = "Pickaxe";
         Buttons.Add(newButton2);
 
+        GameObject newButton3 = Instantiate(BarButtonPrefab);
+        newButton3.transform.SetParent(gameObject.transform, false);
+        newButton3.GetComponent<Image>().sprite = BarricadeSprite;
+        newButton3.GetComponent<ToolbarTool>().SetToolName("Barricade");
+        newButton3.GetComponentInChildren<Text>().text = "Barricade";
+        Buttons.Add(newButton3);
+
         //makes 6 random buttons that do nothing atm ---------------------------------------------------------
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 4; i++)
         {
             GameObject EmptyButton = Instantiate(BarButtonPrefab);
             EmptyButton.transform.SetParent(gameObject.transform, false);
@@ -99,6 +109,10 @@ public class ToolbarHandler : MonoBehaviour {
         {
             Pickaxe.SetActive(true);
         }
+        else if (button.GetComponent<ToolbarTool>().GetToolName() == "Barricade")
+        {
+            Blueprint.SetActive(true);
+        }
 
     }
 
@@ -112,4 +126,11 @@ public class ToolbarHandler : MonoBehaviour {
     {
         Pickaxe.SetActive(true);
     }
+
+    private void ToolBlueprint()
+    {
+        Blueprint.SetActive(true);
+    }
+
+
 }

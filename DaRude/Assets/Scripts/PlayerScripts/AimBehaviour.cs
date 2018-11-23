@@ -20,10 +20,13 @@ public class AimBehaviour : GenericBehaviour
     private float AnnoucementTextTime;
     private bool AnnoucementTextActive;
 
+    private ToolbarHandler toolbarHandler;
+
 
     // Start is always called after any Awake functions.
     void Start ()
 	{
+        toolbarHandler = Toolbar.GetComponent<ToolbarHandler>();
         ChopStartTime = 0;
         AnnoucementTextTime = 0;
 		// Set up the references.
@@ -68,28 +71,41 @@ public class AimBehaviour : GenericBehaviour
 		// Set aim boolean on the Animator Controller.
 		anim.SetBool (aimBool, aim);
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            //Currently barricade and left mouse pressed once.
+            if (toolbarHandler.getActiveToolName().Equals("Barricade"))
+            {
+                GetComponent<BuildHandler>().buildBarricade1();
+            }
+        }
+
         if (Input.GetMouseButton(0))
         {
-
-            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-            RaycastHit hitInfo;
-            bool hit = Physics.Raycast(ray, out hitInfo);
-            if (hit)
+            //If current tool is hatchet and left mouse was pressed
+            if(toolbarHandler.getActiveToolName().Equals("Hatchet"))
             {
-                print("hit something:" + hitInfo.transform.gameObject.tag);
-                
-                if (hitInfo.transform.gameObject.tag == "TreeTag")
+                Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+                RaycastHit hitInfo;
+                bool hit = Physics.Raycast(ray, out hitInfo);
+                if (hit)
                 {
-                    //Ray hit tree
-                    if (Toolbar.GetComponent<ToolbarHandler>().getActiveToolName() == "Hatchet")
-                    {
-                        ChopTree();
-                    }
-                }
-                
-            }
+                    print("hit something:" + hitInfo.transform.gameObject.tag);
 
+                    if (hitInfo.transform.gameObject.tag == "TreeTag")
+                    {
+                        //Ray hit tree
+                        if (Toolbar.GetComponent<ToolbarHandler>().getActiveToolName() == "Hatchet")
+                        {
+                            ChopTree();
+                        }
+                    }
+
+                }
+            }
         }
+
+
         else //means mouse not pressed
         {
             LoadingBar.SetActive(false);
