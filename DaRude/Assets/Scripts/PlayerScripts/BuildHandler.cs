@@ -7,18 +7,33 @@ public class BuildHandler : MonoBehaviour {
     public Terrain terrain;
     public GameObject Barricade1;
 
+    private MaterialHandler materialHandler;
+
+
+    void Start()
+    {
+        materialHandler = GameObject.Find("Canvas").GetComponent<MaterialHandler>();
+    }
+
     public void buildBarricade1()
     {
-        
-        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-        RaycastHit hitInfo;
-        bool hit = Physics.Raycast(ray, out hitInfo);
-        Vector3 buildSpot = hitInfo.point;
-        buildSpot.y = GetHeightDetail(terrain.terrainData, Mathf.RoundToInt(buildSpot.z), Mathf.RoundToInt(buildSpot.x));
-        
-        GameObject barr1 = GameObject.Instantiate(Barricade1);
-        barr1.transform.position = buildSpot;
-        barr1.transform.Rotate(0, 0, 0, Space.Self);
+        if(materialHandler.removeResources(25, 0) == 0)
+        {
+            //was enough resources, continue with building
+            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+            RaycastHit hitInfo;
+            bool hit = Physics.Raycast(ray, out hitInfo);
+            Vector3 buildSpot = hitInfo.point;
+            buildSpot.y = GetHeightDetail(terrain.terrainData, Mathf.RoundToInt(buildSpot.z), Mathf.RoundToInt(buildSpot.x));
+            GameObject barr1 = GameObject.Instantiate(Barricade1);
+            barr1.transform.position = buildSpot;
+            print(Camera.main.transform.rotation.eulerAngles);
+            barr1.transform.rotation = Quaternion.Euler(0, Camera.main.transform.rotation.eulerAngles.y - 90, 0);
+        }
+        else
+        {
+            print("Not enoguht resources");
+        }
         
 
     }
@@ -32,13 +47,5 @@ public class BuildHandler : MonoBehaviour {
         return height;
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

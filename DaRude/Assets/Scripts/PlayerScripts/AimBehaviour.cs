@@ -90,14 +90,13 @@ public class AimBehaviour : GenericBehaviour
                 bool hit = Physics.Raycast(ray, out hitInfo);
                 if (hit)
                 {
-                    print("hit something:" + hitInfo.transform.gameObject.tag);
 
                     if (hitInfo.transform.gameObject.tag == "TreeTag")
                     {
                         //Ray hit tree
                         if (Toolbar.GetComponent<ToolbarHandler>().getActiveToolName() == "Hatchet")
                         {
-                            ChopTree();
+                            ChopTree(hitInfo.transform.gameObject);
                         }
                     }
 
@@ -124,7 +123,7 @@ public class AimBehaviour : GenericBehaviour
         }
     }
 
-    private void ChopTree()
+    private void ChopTree(GameObject treeToChop)
     {
         if(LoadingBar.active == false)
         {
@@ -136,10 +135,12 @@ public class AimBehaviour : GenericBehaviour
 
         if(ChopStartTime > 3)
         {
-            annoucementText.text = "You chopped 3 logs";
+            annoucementText.text = "You chopped 50 logs";
+            MainCanvas.GetComponent<MaterialHandler>().addWood(50);
             AnnoucementTextActive = true;
             LoadingBar.SetActive(false);
             ChopStartTime = 0;
+            Destroy(treeToChop);
         }
 
         

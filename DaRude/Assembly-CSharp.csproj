@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\LevelScripts\ThirdPersonOrbitCam.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\DeathCircle.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\LoadingCircle.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\MaterialHandler.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ToolbarHandler.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ToolbarTool.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\UIController.cs" />
