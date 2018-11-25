@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
     public float harmDelay;
     public int circleHarmAmount;
     private float sceneRestartDelay;
+    private int position;
 
     // Use this for initialization
     void Start ()
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour {
         Health = 100;
         curTimeStamp = Time.time;
         sceneRestartDelay = 4;
+        position = 25;
 
         //Sets character starting position according to generated map
         Vector3 currentpos = transform.position;
@@ -50,11 +52,25 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        // For test
-        if (Input.GetButton("Win"))
+        if (position == 1)
         {
             Canvas.Win();
             WLTimeStamp = Time.time;
+        }
+
+        if (Input.GetButtonUp("Inventory"))
+        {
+            Canvas.toggleInventory();
+            if(position > 1)
+            {
+                position -= 1;
+                Canvas.setPosition(position);
+            }
+        }
+
+        if (Input.GetButtonUp("Tab"))
+        {
+            Canvas.toggleSkills();
         }
 
         if (WLTimeStamp != 0 && Time.time > WLTimeStamp + sceneRestartDelay)
@@ -68,6 +84,7 @@ public class PlayerController : MonoBehaviour {
     {
         this.Health -= amount;
         Canvas.decreaseHealth(amount);
+        Canvas.Inventory.GetComponent<Stats>().setHealth(Health);
     }
 
     public void setOutOfDeathCircle(bool state)
@@ -80,7 +97,6 @@ public class PlayerController : MonoBehaviour {
         if(other.CompareTag("TreeTag"))
         {
             //hit small three
-            
         }
     }
 

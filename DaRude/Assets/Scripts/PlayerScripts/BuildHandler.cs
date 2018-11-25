@@ -8,17 +8,24 @@ public class BuildHandler : MonoBehaviour {
     public GameObject Barricade1;
 
     private MaterialHandler materialHandler;
+    private Inventory PlayerInventory;
+    private Skills PlayerSkills;
 
 
     void Start()
     {
         materialHandler = GameObject.Find("Canvas").GetComponent<MaterialHandler>();
+        PlayerInventory = GameObject.Find("Canvas").GetComponent<Inventory>();
+        PlayerSkills = GameObject.Find("Canvas").GetComponent<Skills>();
     }
 
     public void buildBarricade1()
     {
-        if(materialHandler.removeResources(25, 0) == 0)
+        //if(materialHandler.removeResources(25, 0) == 0)
+        if(PlayerInventory.getItem("Wood").item.Quantity >= 25)
         {
+            PlayerInventory.getItem("Wood").decreaseQuantity(25);
+            PlayerSkills.setCraftingExp(PlayerSkills.getCraftingExp() + 5);
             //was enough resources, continue with building
             Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
             RaycastHit hitInfo;

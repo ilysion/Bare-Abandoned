@@ -9,6 +9,8 @@ public class AimBehaviour : GenericBehaviour
     public GameObject LoadingBar;
     public GameObject Toolbar;
     public GameObject MainCanvas;
+    private Inventory PlayerInventory;
+    private Skills PlayerSkills;
 	public Texture2D crosshair;                                           // Crosshair texture.
 	public float aimTurnSmoothing = 15.0f;                                // Speed of turn response when aiming to match camera facing.
 	public Vector3 aimPivotOffset = new Vector3(0.0f, 1.7f,  -0.3f);      // Offset to repoint the camera when aiming.
@@ -26,6 +28,8 @@ public class AimBehaviour : GenericBehaviour
     // Start is always called after any Awake functions.
     void Start ()
 	{
+        PlayerInventory = MainCanvas.GetComponent<Inventory>();
+        PlayerSkills = MainCanvas.GetComponent<Skills>();
         toolbarHandler = Toolbar.GetComponent<ToolbarHandler>();
         ChopStartTime = 0;
         AnnoucementTextTime = 0;
@@ -125,7 +129,7 @@ public class AimBehaviour : GenericBehaviour
 
     private void ChopTree(GameObject treeToChop)
     {
-        if(LoadingBar.active == false)
+        if(LoadingBar.activeSelf == false)
         {
             LoadingBar.GetComponent<LoadingCircle>().ResetLoading();
             ChopStartTime = 0;
@@ -137,6 +141,15 @@ public class AimBehaviour : GenericBehaviour
         {
             annoucementText.text = "You chopped 50 logs";
             MainCanvas.GetComponent<MaterialHandler>().addWood(50);
+            if(PlayerInventory.Contains("Wood")) // Adds wood resource to inventory
+            {
+                PlayerInventory.getItem("Wood").increaseQuantity(50);
+            }
+            else
+            {
+                
+            }
+            PlayerSkills.setGatheringExp(PlayerSkills.getGatheringExp() + 5); // Increases Player gathering skill experience
             AnnoucementTextActive = true;
             LoadingBar.SetActive(false);
             ChopStartTime = 0;
