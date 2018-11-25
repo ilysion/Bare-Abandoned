@@ -40,8 +40,8 @@ public class TerrainGenerator : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                int PlaceRandom1 = Random.Range(1, 400);
-                int PlaceRandom2 = Random.Range(1, 200);
+                int PlaceRandom1 = Random.Range(1, 600);
+                int PlaceRandom2 = Random.Range(1, 300);
                 if (PlaceRandom1 < 2)
                 {
                     position.x = x;

@@ -61,11 +61,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\GUIScripts\Animation\ScalingAnimation.cs" />
+    <Compile Include="Assets\Scripts\GUIScripts\Animation\TweeningPanelPresenter.cs" />
+    <Compile Include="Assets\Scripts\GUIScripts\Buttons.cs" />
+    <Compile Include="Assets\Scripts\GUIScripts\Inventory.cs" />
+    <Compile Include="Assets\Scripts\GUIScripts\Skills.cs" />
+    <Compile Include="Assets\Scripts\GUIScripts\Slot.cs" />
+    <Compile Include="Assets\Scripts\GUIScripts\Stats.cs" />
     <Compile Include="Assets\Scripts\LevelScripts\ControlsTutorial.cs" />
     <Compile Include="Assets\Scripts\LevelScripts\HintManagement.cs" />
     <Compile Include="Assets\Scripts\LevelScripts\TerrainGenerator.cs" />
     <Compile Include="Assets\Scripts\LevelScripts\ThirdPersonOrbitCam.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\DeathCircle.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\Item.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\LoadingCircle.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\MaterialHandler.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ToolbarHandler.cs" />
@@ -77,6 +85,8 @@
     <Compile Include="Assets\Scripts\PlayerScripts\FlyBehaviour.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\MoveBehaviour.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\ZombieScripts\ZombieAi.cs" />
+    <Compile Include="Assets\Scripts\ZombieScripts\ZombieSpawner.cs" />
     <None Include="Assets\Shaders\Test.shader" />
     <None Include="Assets\laxer Assets\creek\Shaders\RunningWater.shader" />
     <None Include="Assets\laxer Assets\creek\Shaders\RunningWaterSimple.shader" />
@@ -85,16 +95,16 @@
     <None Include="Assets\Shaders\InvertSurface.shader" />
     <None Include="Assets\readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/Karl Jaagup Kask/Documents/TÜ AASTA 2/Mängud/ProjektMäng/Project-Team-X/DaRude/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/UnityProjektid/DarudeGit3/Project-Team-X/DaRude/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Karl Jaagup Kask/Documents/TÜ AASTA 2/Mängud/ProjektMäng/Project-Team-X/DaRude/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/UnityProjektid/DarudeGit3/Project-Team-X/DaRude/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Karl Jaagup Kask/Documents/TÜ AASTA 2/Mängud/ProjektMäng/Project-Team-X/DaRude/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/UnityProjektid/DarudeGit3/Project-Team-X/DaRude/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Karl Jaagup Kask/Documents/TÜ AASTA 2/Mängud/ProjektMäng/Project-Team-X/DaRude/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/UnityProjektid/DarudeGit3/Project-Team-X/DaRude/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -295,10 +305,10 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/Karl Jaagup Kask/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/ilysionLaptop/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/Karl Jaagup Kask/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/ilysionLaptop/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>

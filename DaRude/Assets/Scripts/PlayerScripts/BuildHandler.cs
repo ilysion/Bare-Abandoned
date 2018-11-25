@@ -14,15 +14,16 @@ public class BuildHandler : MonoBehaviour {
 
     void Start()
     {
-        materialHandler = GameObject.Find("Canvas").GetComponent<MaterialHandler>();
-        PlayerInventory = GameObject.Find("Canvas").GetComponent<Inventory>();
-        PlayerSkills = GameObject.Find("Canvas").GetComponent<Skills>();
+        GameObject canvas = GameObject.Find("Canvas");
+        PlayerInventory = canvas.GetComponent<Inventory>();
+        materialHandler = canvas.GetComponent<MaterialHandler>();
+        PlayerSkills = canvas.GetComponent<Skills>();
     }
 
     public void buildBarricade1()
     {
         //if(materialHandler.removeResources(25, 0) == 0)
-        if(PlayerInventory.getItem("Wood").item.Quantity >= 25)
+        if (PlayerInventory.getItem("Wood").item.Quantity >= 25)
         {
             PlayerInventory.getItem("Wood").decreaseQuantity(25);
             PlayerSkills.setCraftingExp(PlayerSkills.getCraftingExp() + 5);
