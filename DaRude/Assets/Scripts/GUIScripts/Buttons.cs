@@ -60,6 +60,7 @@ public class Buttons : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
             else if (gameObject.name == "Exit")
             {
                 HintText.text = "Clicked on Exit";
+                Application.Quit();
             }
         }
     }

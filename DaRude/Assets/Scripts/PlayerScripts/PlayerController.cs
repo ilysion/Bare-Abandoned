@@ -73,6 +73,11 @@ public class PlayerController : MonoBehaviour {
             Canvas.toggleSkills();
         }
 
+        if (Input.GetButtonUp("Esc"))
+        {
+            SceneManager.LoadScene("Menu");
+        }
+
         if (WLTimeStamp != 0 && Time.time > WLTimeStamp + sceneRestartDelay)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
