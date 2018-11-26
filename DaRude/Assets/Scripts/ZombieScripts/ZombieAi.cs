@@ -33,7 +33,7 @@ public class ZombieAi : MonoBehaviour
         playerInRange = false;
         randomWalk = false;
         //dno why its not working atm
-        //uicontroller = GameObject.Find("canvas").GetComponent<UIController>();
+        uicontroller = GameObject.Find("Canvas").GetComponent<UIController>();
     }
 
 
@@ -82,10 +82,12 @@ public class ZombieAi : MonoBehaviour
         if(dist < hittingRange)
         {
             animator.SetTrigger("ZStartHitting");
-            if (hitTime + Time.deltaTime > hitTime + hitDelay)
+            if (Time.time > hitTime + hitDelay)
             {
                 //TODO enable when got the controller
-                //uicontroller.decreaseHealth(1);
+                uicontroller.decreaseHealth(10);
+                print("healthDecreased");
+
                 hitTime = Time.time;
             }
         }
