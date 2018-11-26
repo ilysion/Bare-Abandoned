@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class AimBehaviour : GenericBehaviour
 {
     public Text annoucementText;
+    public AudioSource treeFall;
     public GameObject LoadingBar;
     public GameObject Toolbar;
     public GameObject MainCanvas;
@@ -101,6 +102,7 @@ public class AimBehaviour : GenericBehaviour
                         if (Toolbar.GetComponent<ToolbarHandler>().getActiveToolName() == "Hatchet")
                         {
                             ChopTree(hitInfo.transform.gameObject);
+                            //treeChoping.Play();
                         }
                     }
 
@@ -132,6 +134,7 @@ public class AimBehaviour : GenericBehaviour
         if(LoadingBar.activeSelf == false)
         {
             LoadingBar.GetComponent<LoadingCircle>().ResetLoading();
+            //treeChoping.Stop();
             ChopStartTime = 0;
         }
         LoadingBar.SetActive(true);
@@ -154,6 +157,8 @@ public class AimBehaviour : GenericBehaviour
             LoadingBar.SetActive(false);
             ChopStartTime = 0;
             Destroy(treeToChop);
+            //treeChoping.Stop();
+            treeFall.Play();
         }
 
         
