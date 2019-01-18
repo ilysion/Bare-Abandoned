@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour {
+public class Inventoryi : MonoBehaviour {
     private GameObject[] Slots;
     private GameObject[] HandSlots;
     //public Stats Stats;
@@ -56,7 +56,7 @@ public class Inventory : MonoBehaviour {
         return amount;
     }
 
-    public void putItem(Item item)
+    public void putItem(Itemi item)
     {
         foreach (GameObject slot in Slots)
         {

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
-    public Item item;
+    public Itemi item;
     public Text QuantityText;
     public Image SlotImage;
     public Sprite DefaultSprite;

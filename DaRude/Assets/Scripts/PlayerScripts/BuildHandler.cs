@@ -8,22 +8,22 @@ public class BuildHandler : MonoBehaviour {
     public GameObject Barricade1;
 
     private MaterialHandler materialHandler;
-    private Inventory PlayerInventory;
+    private Inventoryi PlayerInventory;
     private Skills PlayerSkills;
 
 
     void Start()
     {
         GameObject canvas = GameObject.Find("Canvas");
-        PlayerInventory = canvas.GetComponent<Inventory>();
-        materialHandler = canvas.GetComponent<MaterialHandler>();
-        PlayerSkills = canvas.GetComponent<Skills>();
+//        PlayerInventory = canvas.GetComponent<Inventoryi>();
+//        materialHandler = canvas.GetComponent<MaterialHandler>();
+//        PlayerSkills = canvas.GetComponent<Skills>();
     }
 
     public void buildBarricade1()
     {
         //if(materialHandler.removeResources(25, 0) == 0)
-        if (PlayerInventory.getItem("Wood").item.Quantity >= 25)
+ /*       if (PlayerInventory.getItem("Wood").item.Quantity >= 25)
         {
             PlayerInventory.getItem("Wood").decreaseQuantity(25);
             PlayerSkills.setCraftingExp(PlayerSkills.getCraftingExp() + 5);
@@ -43,7 +43,7 @@ public class BuildHandler : MonoBehaviour {
             print("Not enoguht resources");
         }
         
-
+    */
     }
 
     private float GetHeightDetail(TerrainData terrainData, int x, int y)

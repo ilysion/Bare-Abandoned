@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/ilysionLaptop/Desktop/Pres2/ThirdPersonControlOrbitCam.exe
+E:/Unity Projects/DaRude Build/ThirdPersonControlOrbitCam.exe
 SceneListBegin?
 Assets/Scenes/Menu.unity
 Assets/Scenes/Main.unity
@@ -174,21 +174,48 @@ e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 cacbc09c8f29b02b666079950569c03a Assembly-CSharp.dll:.HintManagement
 1085e99ffba75ed11659aab9f68a2d81 Assembly-CSharp.dll:.AimBehaviour
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
-ddcae71b3f91386237efd012a9eef2be UnityEngine.TestRunner.dll:UnityEngine.TestTools.EnumerableSetUpTearDownCommandState
-486cd95c82d8305219c352c06b776e1f UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.TestResultRendererCallback
 0304fde4855e6d3063d2776cc5de818c Assembly-CSharp.dll:.MaterialHandler
-486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Inventory
+0b2d3257fae217d2a9eb8c152b0a0697 Assembly-CSharp.dll:.Inventory
 0b44770629ce861606e32d22e52b0aea Assembly-CSharp.dll:.TerrainGenerator
 a16f01f3818a2a7f71a32b25b09e64f7 Assembly-CSharp.dll:.ZombieSpawner
 4aeeecf74718d9564c0c47f1aa59321c Assembly-CSharp.dll:.Stats
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.ToolbarTool
 ec53ff2615ae5163da20707d1cc64c37 Assembly-CSharp.dll:.ToolbarHandler
 1bebc88af2c981adc149decf40e26025 Assembly-CSharp.dll:.Skills
-649c9bf4499c62240fc6df4cf29aaafa Assembly-CSharp.dll:.Item
 9760622eb1cf3f54cae3ae0f444c1ba0 Assembly-CSharp.dll:.TweeningPanelPresenter
 b3e239528e884effca5a9e9ea4cefab3 Assembly-CSharp.dll:.BuildHandler
 a9abb121cb222cbede63343b9ab9b343 Assembly-CSharp.dll:.ZombieAi
-d8315af53128cc275b3fa31943711fb3 Assembly-CSharp.dll:.Slot
+3e2d98945ab43b95320eaedce62a5a7c Assembly-CSharp.dll:.Slot
 5d9500d7107b492553a2999ff947dfe4 Assembly-CSharp.dll:.Buttons
 99087962f4fa5f11b2447da67ec302cc Assembly-CSharp.dll:.LoadingCircle
 9145b66375455e633eb3964c179136b4 Assembly-CSharp.dll:.ScalingAnimation
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.CreateAttributeDatabase
+e649fa05de12319be78551b699ef0680 Assembly-CSharp.dll:.ConsumeItem
+8ea210d32ebf6b4e0c3a41a7f7db6305 Assembly-CSharp.dll:.EquipmentSystem
+a1fe0246c0f2daa18821f515c66f2f1f Assembly-CSharp.dll:.RandomLootSystem
+3f9c42b24b8200095c9805ed874e2b8f Assembly-CSharp.dll:.Tooltip
+f4d49ebaed4ab34ff9175c8174aa32e3 Assembly-CSharp.dll:.Hotbar
+5c85324ef9855572a97b4fce2cf78246 Assembly-CSharp.dll:.CraftSystem
+253d7790eaa03452440d42e9b4b78ede Assembly-CSharp.dll:.DesignForInventory
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.SlotCover
+a4b63cc169420eb4efd0ffe575055f1c Assembly-CSharp.dll:.PlayerInventory
+55c761f9baadfbb22ae9b3278b5e4319 Assembly-CSharp.dll:.ShowTooltip
+03d5a7931cd1fcc1601f2ac09d7d45cb Assembly-CSharp.dll:.InputManager
+82443e2ccbab04b6c3ba60872f42f15a Assembly-CSharp.dll:.CraftResultSlot
+c0f3aeef9fdd9d083566e2446ea4cffd Assembly-CSharp.dll:.WorkingStation
+869b90e4fc598b97f52adc6c472bf7e6 Assembly-CSharp.dll:.BlueprintDatabase
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.DragItem
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.DragInventory
+9e45c942b93138ac4342c1e7efd42608 Assembly-CSharp.dll:.InventoryDesign
+78656fe910110350d5db4c1e67d7bf7c Assembly-CSharp.dll:.StorageInventory
+a6e26d28fa23a31de81a9ef1d9790625 Assembly-CSharp.dll:.ItemAttributeList
+0b2d3257fae217d2a9eb8c152b0a0697 Assembly-CSharp.dll:.Inventory
+9d722607e77b81c90be2c321baf380be Assembly-CSharp.dll:.SplitItem
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.RightClick
+269211e035568b345b4f9d9af6352610 Assembly-CSharp.dll:.RandomChestLootSystem
+30a964f90d921db67b98a3824d73aa9d Assembly-CSharp.dll:.ItemOnObject
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.LeftClick
+c970be783eb05d4302229bdf7ebc1759 Assembly-CSharp.dll:.ItemDataBaseList
+30a964f90d921db67b98a3824d73aa9d Assembly-CSharp.dll:.PickUpItem
+db26583d139f9ab4b9384f88692e48a8 Assembly-CSharp.dll:.FirstPersonController
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.CloseInventory

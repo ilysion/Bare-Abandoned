@@ -10,7 +10,7 @@ public class AimBehaviour : GenericBehaviour
     public GameObject LoadingBar;
     public GameObject Toolbar;
     public GameObject MainCanvas;
-    private Inventory PlayerInventory;
+    private Inventoryi PlayerInventory;
     private Skills PlayerSkills;
 	public Texture2D crosshair;                                           // Crosshair texture.
 	public float aimTurnSmoothing = 15.0f;                                // Speed of turn response when aiming to match camera facing.
@@ -29,7 +29,7 @@ public class AimBehaviour : GenericBehaviour
     // Start is always called after any Awake functions.
     void Start ()
 	{
-        PlayerInventory = MainCanvas.GetComponent<Inventory>();
+        PlayerInventory = MainCanvas.GetComponent<Inventoryi>();
         PlayerSkills = MainCanvas.GetComponent<Skills>();
         toolbarHandler = Toolbar.GetComponent<ToolbarHandler>();
         ChopStartTime = 0;

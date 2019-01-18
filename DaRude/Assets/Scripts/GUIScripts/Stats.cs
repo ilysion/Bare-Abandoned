@@ -8,7 +8,7 @@ public class Stats : MonoBehaviour {
     private int Health;
     private float Weight;
     private float MaxWeight;
-    private Inventory PlayerInventory;
+    private Inventoryi PlayerInventory;
     public GameObject Canvas;
     public Text HealthPercent;
     public Text TotalWeight;
@@ -16,7 +16,7 @@ public class Stats : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        PlayerInventory = Canvas.GetComponent<Inventory>();
+        PlayerInventory = Canvas.GetComponent<Inventoryi>();
         MaxWeight = 100;
         setMaxWeight(100);
         Health = 100;

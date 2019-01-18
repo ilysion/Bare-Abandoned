@@ -33,7 +33,7 @@ public class ZombieAi : MonoBehaviour
         playerInRange = false;
         randomWalk = false;
         //dno why its not working atm
-        uicontroller = GameObject.Find("Canvas").GetComponent<UIController>();
+ //       uicontroller = GameObject.Find("Canvas").GetComponent<UIController>();
     }
 
 
@@ -85,7 +85,7 @@ public class ZombieAi : MonoBehaviour
             if (Time.time > hitTime + hitDelay)
             {
                 //TODO enable when got the controller
-                uicontroller.decreaseHealth(10);
+ //               uicontroller.decreaseHealth(10);
                 print("healthDecreased");
 
                 hitTime = Time.time;
